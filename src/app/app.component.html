@@ -1,1 +1,17 @@
-<h1>Hola mundo</h1>
+  <div class="container main-container">
+    <h1 class="text-center">Fire Chat</h1>
+
+    <div class="col-md-12 text-right" *ngIf="chatservice.usuario.uid" >
+      <button type="button" class="btn btn-outline-danger"
+              (click)="chatservice.logout()">
+        Salir
+      </button>
+    </div>
+
+    <app-login *ngIf="!chatservice.usuario.uid"></app-login>
+
+    <div class="chat-window" *ngIf="chatservice.usuario.uid">
+      <app-chat></app-chat>
+    </div>
+
+  </div>
